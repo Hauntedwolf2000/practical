@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>LAB EXAM</h1>
+    <br><br>
+    <button onclick="promptdemo()">PROMPT</button>
+    <button onclick="alertdemo()">ALERT</button>
+    <button onclick="displaydemo()">DISPLAY</button>
+    <button onclick="confirmdemo()">CONFIRM</button>
+
+    <script>
+        function promptdemo(){
+            let n =window.prompt("eneter a number of your choice")
+            let fact=1;
+            for (let i=n;i>1;i--){
+                fact*=i;
+            }
+            window.alert(fact)
+        }
+        function displaydemo(){
+            date = new Date();
+            day = date.getDate();
+            month = date.getMonth() + 1;
+            year = date.getFullYear();
+            window.alert(`Today's date is ${day}/${month}/${year}.`);
+        }
+        function alertdemo(){
+            let n = window.prompt("Enter a number...");
+            str = "";
+            for (let i = 1; i <= 10; i++) {
+                str += `${n} x ${i} = ${n * i} \n`;
+            }
+             window.alert("Multiplication table of " + parseInt(n) + "\n" + str);
+            };
+        function confirmdemo(){
+            let n=window.prompt("dkhvfjdv")
+            str=" ";
+            for(let i=0;i<=10;i++){
+                str+=`${n}X${i}=${n*i}\n`;
+            }
+            window.alert(str)
+        }
+    </script>
+</body>
+</html>

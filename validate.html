@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validation</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+        form{
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <form name="myform" onsubmit="return validateform()" >
+        <label for="fname">FIRST NAME :</label>&nbsp;&nbsp;
+        <input type="text" name="fname">&nbsp;&nbsp;
+        <label for="lname">LAST NAME :</label>&nbsp;&nbsp;
+        <input type="text" name="lname" id="lname"><br><br>
+        <label for="phno">PHNO:&nbsp;</label>
+        <input type="number" name="pnum" id="pnum" ><br><br>
+        <label for="email">EMAIL:&nbsp;</label>
+        <input type="email" name="mail" id="mail"><br><br>
+        <label for="gener">GENDER</label>
+        <select name="gen" id="gen" required>
+            <option value="male">MALE</option>
+            <option value="frmale">FEMALE</option>
+            <option value="oth">OTHERS</option>
+        </select><br><br>
+        <label for="pasword">PASSWORD :</label>
+        <input type="password" name="pasword" id="pasword" ><br><br>
+        <label for="confirm-pasword">Confirm PASSWORD :</label>
+        <input type="password" name="cnfrmpasword" id="cnfrmpasword" ><br><br>
+        <label for="mesg">MESSEGE :&nbsp;</label>
+        <textarea name="text" id="msg" cols="15" rows="4"></textarea><br><br>
+        <label for="agree" ><input type="checkbox" id="agree" name="agree"> i agree to the terms and conditions of the company</label>
+        <br><br><button type="submit">SUBMIT</button>
+    </form>
+
+    <script>
+        function validateform() {
+  // Get form inputs
+  var firstName = document.forms["myform"]["fname"].value;
+  var lastName = document.forms["myform"]["lname"].value;
+  var phoneNumber = document.forms["myform"]["pnum"].value;
+  var email = document.forms["myform"]["mail"].value;
+  var gender = document.forms["myform"]["gen"].value;
+  var password = document.forms["myform"]["pasword"].value;
+  var confirmPassword = document.forms["myform"]["cnfrmpasword"].value;
+  var message = document.forms["myform"]["msg"].value;
+  var agreeCheckbox = document.forms["myform"]["agree"];
+
+  // Validate first name
+  if (firstName == "" || firstName.length<3) {
+    alert("Please enter your first name.");
+    return false;
+  }
+
+  // Validate last name
+  if (lastName == "") {
+    alert("Please enter your last name.");
+    return false;
+  }
+
+  // Validate phone number
+  if (phoneNumber == "") {
+    alert("Please enter your phone number.");
+    return false;
+  }
+
+  if (isNaN(phoneNumber)) {
+    alert("Phone number must be a number.");
+    return false;
+  }
+
+  // Validate email
+  if (email == "") {
+    alert("Please enter your email.");
+    return false;
+  }
+
+  // Validate gender
+  if (gender == "") {
+    alert("Please select your gender.");
+    return false;
+  }
+
+  // Validate password
+  if (password == "") {
+    alert("Please enter your password.");
+    return false;
+  }
+
+  // Validate confirm password
+  if (confirmPassword == "") {
+    alert("Please confirm your password.");
+    return false;
+  }
+
+  if (password != confirmPassword) {
+    alert("Passwords do not match.");
+    return false;
+  }
+
+  // Validate message
+  if (message == "") {
+    alert("Please enter a message.");
+    return false;
+  }
+
+  // Validate agree checkbox
+  if (!agreeCheckbox.checked) {
+    alert("Please agree to the terms and conditions.");
+    return false;
+  }
+
+  // If all inputs are valid, return true
+  return true;
+}
+    </script>
+</body>
+</html>
